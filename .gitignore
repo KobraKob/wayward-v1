@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+backend/venv/
+backend/__pycache__/
+mobile/node_modules/
+mobile/.expo/
+
+# Environment
+.env
+backend/.env
+mobile/.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+mobile/dist/
+mobile/build/
