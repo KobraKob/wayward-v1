@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find C:UsersbadhuOneDriveDesktopWayward -type f \\\\\\(-name *.ts -o -name *.tsx -o -name *.py \\\\\\))",
+      "Bash(npx expo:*)",
+      "Bash(npx expo-doctor:*)",
+      "Bash(rm -rf node_modules package-lock.json)",
+      "Bash(npm install:*)",
+      "Bash(ipconfig)",
+      "Bash(source venv/Scripts/activate)",
+      "Bash(python -c \"from routers import auth; print\\(''auth router OK''\\)\")",
+      "Bash(python -c \":*)",
+      "Bash(curl -s http://localhost:8000/)",
+      "Bash(curl -s http://192.168.0.100:8000/)",
+      "Bash(curl -s -X POST http://localhost:8000/auth/signup -H \"Content-Type: application/json\" -d '{\"\"name\"\":\"\"Test User\"\",\"\"email\"\":\"\"testuser123@test.com\"\",\"\"password\"\":\"\"Test1234!\"\",\"\"city\"\":\"\"New York\"\"}')",
+      "Bash(curl -s -X POST http://localhost:8000/auth/signup -H \"Content-Type: application/json\" --data-raw \"{\"\"name\"\":\"\"Test User\"\",\"\"email\"\":\"\"testuser9999@test.com\"\",\"\"password\"\":\"\"Test1234\"\",\"\"city\"\":\"\"New York\"\"}\")",
+      "Bash(curl -s -X POST http://localhost:8000/auth/signup -H \"Content-Type: application/json\" --data-raw \"{\"\"name\"\":\"\"Test User\"\",\"\"email\"\":\"\"testuser9999@gmail.com\"\",\"\"password\"\":\"\"Test1234\"\",\"\"city\"\":\"\"New York\"\"}\")",
+      "Bash(npx tsc:*)",
+      "Bash(ls -la /c/Users/badhu/OneDrive/Desktop/Wayward/backend/*.py)",
+      "Bash(python -c \"from supabase import create_client; help\\(create_client\\)\")",
+      "Bash(python -c \"from routers.auth import router; print\\(''Auth router OK''\\)\")"
+    ]
+  }
+}
