@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wayward — Go Beyond The Map</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">&#x1F9ED;</span> Wayward
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#social">Community</a>
+        <a href="#download" class="nav-cta">Download APK</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-badge">AI-Powered Adventures</div>
+      <h1 class="hero-title">
+        Go Beyond<br /><span class="gradient-text">The Map</span>
+      </h1>
+      <p class="hero-subtitle">
+        Break free from routine. Wayward generates personalized real-world quests
+        based on your interests, location, and vibe — then tracks your journey as
+        you explore, level up, and share stories with fellow wanderers.
+      </p>
+      <div class="hero-actions">
+        <a href="#download" class="btn btn-primary btn-glow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Now
+        </a>
+        <a href="#features" class="btn btn-ghost">
+          Explore Features
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Quest Categories</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-target="3">0</span>
+          <span class="stat-label">Difficulty Tiers</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Personalized</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="phone-mockup">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen" id="phoneScreen">
+            <!-- Animated phone screen content -->
+            <div class="screen-content screen-home active" id="screen-home">
+              <div class="screen-header">
+                <span class="screen-greeting">Good evening, Explorer</span>
+                <div class="screen-avatar"></div>
+              </div>
+              <div class="screen-timer">
+                <div class="timer-ring"></div>
+                <span class="timer-text">01:23:45</span>
+                <span class="timer-label">Adventure Clock</span>
+              </div>
+              <div class="screen-buttons">
+                <div class="screen-btn bored-btn">&#x26A1; I'm Bored</div>
+                <div class="screen-btn craft-btn">&#x1F3AF; Craft Quest</div>
+              </div>
+              <div class="screen-quest-card">
+                <div class="quest-badge">&#x1F30D; Explore</div>
+                <div class="quest-title">Hidden Gem Cafe Hunt</div>
+                <div class="quest-meta">
+                  <span>&#x23F1; 45 min</span>
+                  <span>&#x2B50; 50 XP</span>
+                </div>
+              </div>
+            </div>
+            <div class="screen-content screen-quest" id="screen-quest">
+              <div class="screen-quest-hero">
+                <div class="quest-cat-badge">&#x1F3A8; Creative</div>
+                <div class="quest-diff">Standard</div>
+              </div>
+              <div class="quest-detail-title">Street Art Safari</div>
+              <div class="quest-desc">Find and photograph 3 pieces of street art within walking distance. Capture the colors, stories, and energy of your city's hidden galleries.</div>
+              <div class="quest-rewards">
+                <div class="reward-item"><span>&#x23F1;</span> 2 hours</div>
+                <div class="reward-item"><span>&#x2B50;</span> 50 XP</div>
+                <div class="reward-item"><span>&#x1F3C5;</span> Badge</div>
+              </div>
+              <div class="screen-btn conquer-btn">&#x2694;&#xFE0F; Mark as Conquered</div>
+            </div>
+            <div class="screen-content screen-social" id="screen-social">
+              <div class="social-tabs">
+                <span class="social-tab active">Stories</span>
+                <span class="social-tab">Duo</span>
+                <span class="social-tab">Squads</span>
+              </div>
+              <div class="social-post">
+                <div class="post-header">
+                  <div class="post-avatar"></div>
+                  <div>
+                    <div class="post-name">Alex W.</div>
+                    <div class="post-time">2h ago</div>
+                  </div>
+                </div>
+                <div class="post-image"></div>
+                <div class="post-caption">Found the most incredible sunset spot! This quest pushed me to explore a part of town I'd never visited.</div>
+                <div class="post-reactions">
+                  <span class="reaction">&#x1F525; 12</span>
+                  <span class="reaction">&#x26A1; 8</span>
+                  <span class="reaction">&#x1F3D4;&#xFE0F; 5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-glow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURES ==================== -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Features</span>
+        <h2 class="section-title">Your Adventure<br /><span class="gradient-text">Toolkit</span></h2>
+        <p class="section-desc">Everything you need to break free from the ordinary and turn every day into an exploration.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card feature-large" data-reveal>
+          <div class="feature-icon icon-ai">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>AI-Powered Quests</h3>
+          <p>Our AI crafts personalized quests using your interests, location, and available time. No two adventures are alike — each one is uniquely tailored to push you just outside your comfort zone.</p>
+          <div class="feature-tags">
+            <span>Groq AI</span>
+            <span>Personalized</span>
+            <span>Dynamic</span>
+          </div>
+        </div>
+
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon icon-bored">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>I'm Bored Button</h3>
+          <p>Zero friction. One tap. Instant micro-quest generated in seconds. No planning, no decisions — just go.</p>
+        </div>
+
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon icon-timer">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Adventure Clock</h3>
+          <p>Track your exploration in real-time with a live timer. See exactly how long you've been out wandering.</p>
+        </div>
+
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon icon-xp">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>XP & Leveling</h3>
+          <p>Earn 50 XP per quest. Rise through ranks from Wanderer to Legend. Keep your streak alive for bonus rewards.</p>
+        </div>
+
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon icon-social">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Duo & Squads</h3>
+          <p>Find nearby wanderers, team up for duo quests with 2x XP, or rally squads of up to 6 adventurers.</p>
+        </div>
+
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon icon-journal">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3>Logbook</h3>
+          <p>Your personal quest journal. Every adventure captured with photos, notes, and memories in a beautiful timeline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HOW IT WORKS ==================== -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">How It Works</span>
+        <h2 class="section-title">Three Steps to<br /><span class="gradient-text">Adventure</span></h2>
+      </div>
+
+      <div class="steps">
+        <div class="step" data-reveal>
+          <div class="step-number">01</div>
+          <div class="step-visual">
+            <div class="step-icon-wrap">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+          </div>
+          <div class="step-text">
+            <h3>Tell Us Your Vibe</h3>
+            <p>Complete a quick onboarding quiz — your interests, hobbies, energy level, and home city. Our AI learns what makes you tick.</p>
+          </div>
+        </div>
+
+        <div class="step-connector">
+          <svg width="40" height="80" viewBox="0 0 40 80"><path d="M20 0 Q 20 40 20 80" stroke="url(#connGrad)" stroke-width="2" fill="none" stroke-dasharray="6 4"/><defs><linearGradient id="connGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FF6B35"/><stop offset="100%" stop-color="#7C5CFC"/></linearGradient></defs></svg>
+        </div>
+
+        <div class="step" data-reveal>
+          <div class="step-number">02</div>
+          <div class="step-visual">
+            <div class="step-icon-wrap">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+          </div>
+          <div class="step-text">
+            <h3>Pick Your Time & Go</h3>
+            <p>Choose how much time you have — 30 minutes to a full day. Get 3 perfectly crafted quests to pick from, or hit "I'm Bored" for an instant adventure.</p>
+          </div>
+        </div>
+
+        <div class="step-connector">
+          <svg width="40" height="80" viewBox="0 0 40 80"><path d="M20 0 Q 20 40 20 80" stroke="url(#connGrad2)" stroke-width="2" fill="none" stroke-dasharray="6 4"/><defs><linearGradient id="connGrad2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7C5CFC"/><stop offset="100%" stop-color="#00D4AA"/></linearGradient></defs></svg>
+        </div>
+
+        <div class="step" data-reveal>
+          <div class="step-number">03</div>
+          <div class="step-visual">
+            <div class="step-icon-wrap">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+            </div>
+          </div>
+          <div class="step-text">
+            <h3>Conquer & Share</h3>
+            <p>Complete your quest, snap a photo, earn XP, and share your story at the Bonfire. Watch your rank climb from Wanderer to Legend.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RANKS ==================== -->
+  <section class="ranks-section" id="ranks">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Progression</span>
+        <h2 class="section-title">Rise Through<br /><span class="gradient-text">The Ranks</span></h2>
+        <p class="section-desc">Every quest brings you closer to legendary status. How far will you go?</p>
+      </div>
+      <div class="ranks-track">
+        <div class="rank-card" data-reveal>
+          <div class="rank-icon">&#x1F6B6;</div>
+          <div class="rank-name">Wanderer</div>
+          <div class="rank-req">Starting rank</div>
+          <div class="rank-bar"><div class="rank-fill" style="width: 10%"></div></div>
+        </div>
+        <div class="rank-card" data-reveal>
+          <div class="rank-icon">&#x1F50D;</div>
+          <div class="rank-name">Explorer</div>
+          <div class="rank-req">5 quests completed</div>
+          <div class="rank-bar"><div class="rank-fill" style="width: 30%"></div></div>
+        </div>
+        <div class="rank-card" data-reveal>
+          <div class="rank-icon">&#x1F525;</div>
+          <div class="rank-name">Trailblazer</div>
+          <div class="rank-req">15 quests completed</div>
+          <div class="rank-bar"><div class="rank-fill" style="width: 50%"></div></div>
+        </div>
+        <div class="rank-card" data-reveal>
+          <div class="rank-icon">&#x1F9ED;</div>
+          <div class="rank-name">Pathfinder</div>
+          <div class="rank-req">30 quests completed</div>
+          <div class="rank-bar"><div class="rank-fill" style="width: 75%"></div></div>
+        </div>
+        <div class="rank-card" data-reveal>
+          <div class="rank-icon">&#x1F451;</div>
+          <div class="rank-name">Legend</div>
+          <div class="rank-req">50 quests completed</div>
+          <div class="rank-bar"><div class="rank-fill" style="width: 100%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SOCIAL PROOF / BONFIRE ==================== -->
+  <section class="social-section" id="social">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">The Bonfire</span>
+        <h2 class="section-title">Share Your<br /><span class="gradient-text">Stories</span></h2>
+        <p class="section-desc">The Bonfire is where wanderers gather. Share quest completions, react with adventure emojis, team up for duo & squad missions.</p>
+      </div>
+      <div class="bonfire-preview">
+        <div class="bonfire-post" data-reveal>
+          <div class="bp-header">
+            <div class="bp-avatar" style="background: linear-gradient(135deg, #FF6B35, #FFB800)"></div>
+            <div>
+              <div class="bp-name">Maya K. <span class="bp-rank">Trailblazer</span></div>
+              <div class="bp-quest">Completed: Sunset Photography Walk</div>
+            </div>
+          </div>
+          <div class="bp-image" style="background: linear-gradient(135deg, #FF6B35 0%, #FF4E6A 50%, #7C5CFC 100%)">
+            <div class="bp-image-text">&#x1F305;</div>
+          </div>
+          <div class="bp-caption">"The golden hour hits different when you're actually looking for it. Found 3 spots I never knew existed in my own neighborhood!"</div>
+          <div class="bp-reactions">
+            <span class="bp-reaction" data-count="24">&#x1F525;</span>
+            <span class="bp-reaction" data-count="18">&#x1F3D4;&#xFE0F;</span>
+            <span class="bp-reaction" data-count="12">&#x26A1;</span>
+            <span class="bp-reaction" data-count="9">&#x1F30A;</span>
+            <span class="bp-reply-count">&#x1F4AC; 7 replies</span>
+          </div>
+        </div>
+        <div class="bonfire-post" data-reveal>
+          <div class="bp-header">
+            <div class="bp-avatar" style="background: linear-gradient(135deg, #00D4AA, #7C5CFC)"></div>
+            <div>
+              <div class="bp-name">Jordan R. <span class="bp-rank">Explorer</span></div>
+              <div class="bp-quest">Completed: Hidden Cafe Discovery</div>
+            </div>
+          </div>
+          <div class="bp-image" style="background: linear-gradient(135deg, #00D4AA 0%, #0A1628 50%, #FFB800 100%)">
+            <div class="bp-image-text">&#x2615;</div>
+          </div>
+          <div class="bp-caption">"Wayward sent me to a hole-in-the-wall cafe with the best matcha I've ever had. This app literally changes how you see your city."</div>
+          <div class="bp-reactions">
+            <span class="bp-reaction" data-count="31">&#x1F525;</span>
+            <span class="bp-reaction" data-count="15">&#x1F3AF;</span>
+            <span class="bp-reaction" data-count="8">&#x1F48E;</span>
+            <span class="bp-reply-count">&#x1F4AC; 11 replies</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== QUEST CATEGORIES ==================== -->
+  <section class="categories-section" id="categories">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Quest Types</span>
+        <h2 class="section-title">Adventures for<br /><span class="gradient-text">Every Mood</span></h2>
+      </div>
+      <div class="categories-carousel" id="categoriesCarousel">
+        <div class="category-pill" data-reveal><span>&#x1F30D;</span> Explore</div>
+        <div class="category-pill" data-reveal><span>&#x1F91D;</span> Social</div>
+        <div class="category-pill" data-reveal><span>&#x1F3A8;</span> Creative</div>
+        <div class="category-pill" data-reveal><span>&#x1F3CB;&#xFE0F;</span> Fitness</div>
+        <div class="category-pill" data-reveal><span>&#x1F35C;</span> Food</div>
+        <div class="category-pill" data-reveal><span>&#x1F33F;</span> Nature</div>
+        <div class="category-pill" data-reveal><span>&#x1F3DB;&#xFE0F;</span> Culture</div>
+      </div>
+      <div class="difficulty-cards">
+        <div class="diff-card" data-reveal>
+          <div class="diff-badge micro">Micro</div>
+          <div class="diff-time">15 - 30 min</div>
+          <p>Quick bursts of adventure. Perfect for lunch breaks or when you just need a spark.</p>
+        </div>
+        <div class="diff-card" data-reveal>
+          <div class="diff-badge standard">Standard</div>
+          <div class="diff-time">2 - 4 hours</div>
+          <p>Deep exploration. Discover hidden gems, meet new people, and create real memories.</p>
+        </div>
+        <div class="diff-card" data-reveal>
+          <div class="diff-badge epic">Epic</div>
+          <div class="diff-time">Full Day</div>
+          <p>All-in adventures for when you're ready to fully commit to something extraordinary.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DOWNLOAD CTA ==================== -->
+  <section class="download-section" id="download">
+    <div class="download-bg">
+      <div class="download-orb orb-1"></div>
+      <div class="download-orb orb-2"></div>
+      <div class="download-orb orb-3"></div>
+    </div>
+    <div class="section-inner download-inner">
+      <h2 class="download-title">Ready to Go<br /><span class="gradient-text">Wayward?</span></h2>
+      <p class="download-desc">Download the app, complete your first quest, and start your journey from Wanderer to Legend.</p>
+      <a href="https://expo.dev/artifacts/eas/fKX2eWVzyT3u1tbQSoCsmK.apk" class="btn btn-primary btn-large btn-glow" id="downloadBtn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download for Android
+      </a>
+      <p class="download-note">Android APK &middot; No Play Store needed &middot; Free</p>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">&#x1F9ED;</span> Wayward
+      </div>
+      <p class="footer-tagline">Go beyond the map.</p>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Wayward. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
